@@ -2,4 +2,5 @@ from encoding import *
 from decoding import *
 from common import *
 
-order_level_transversal(encode("ABRACADABRAMUITODABRA"))
+huffman_tree = build_huffman_tree("ABRACADABRAMUITODABRA")
+order_level_transversal(huffman_tree)

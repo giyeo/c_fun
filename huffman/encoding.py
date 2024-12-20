@@ -1,7 +1,7 @@
 from common import *
 from collections import deque
 
-def encode(s):
+def build_huffman_tree(s):
     frequency = {}
     for c in s:
         if c not in frequency:
@@ -21,6 +21,8 @@ def encode(s):
             tree.right = Node(frequency[char], char)
             char = deq.popleft()
             tree.left = Node(frequency[char], char)
+            if (tree.left.freq > tree.right.freq):
+                tree.left, tree.right = tree.right, tree.left
             tree.freq = tree.left.freq + tree.right.freq
             continue
         newTree = Node(None, None)
@@ -29,7 +31,9 @@ def encode(s):
         newTree.right = Node(frequency[char], char)
         newTree.freq = newTree.left.freq + newTree.right.freq
         tree = newTree
-    
+        if (tree.left.freq > tree.right.freq):
+                tree.left, tree.right = tree.right, tree.left
+        
     return tree
 
 

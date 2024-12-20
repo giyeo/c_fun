@@ -56,6 +56,11 @@ def order_level_transversal(root: Node):
         i += 1
     printTree(ptn)
 
-    
+def encode(root, s):
+    current = root
+    for char in s:
+        
+        
+
 
 
